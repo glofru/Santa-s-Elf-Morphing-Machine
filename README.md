@@ -4,41 +4,57 @@ Solution provided by: [Gianluca Lofrumento](https://github.com/github.io/glofru)
 
 ## Problem
 Problem in _problem.pdf_ file and a useful information in the challenge description
-<img src="img/img_1.jpg" />
+<img src="img/screenshots/screenshot1.png" />
 ## Solution
 
 ### Find _A<sub>i</sub>_ matrix
 First of all we have to find _A<sub>i</sub>_'s eigenvalues.
 Given the generic 2x2 matrix <br/>
-<img src="https://latex.codecogs.com/gif.latex?A&space;=&space;\begin{bmatrix}&space;a&space;&&space;b\\&space;c&space;&&space;d&space;\end{bmatrix}" style="display: block; margin: 0 auto;" /> <br/>
+<img src="img/latex/latex01.png" style="display: block; margin: 0 auto;" /> <br/>
 we know that its characteristic polynomial is
-<img src="https://latex.codecogs.com/gif.latex?det(A&space;-&space;\lambda&space;I)&space;=&space;0" align="middle"/> <br/>
-<img src="https://latex.codecogs.com/gif.latex?det(\begin{bmatrix}&space;a-\lambda&space;&&space;b\\&space;c&space;&&space;d-\lambda&space;\end{bmatrix})&space;=&space;0" /><br/>
-<img src="https://latex.codecogs.com/gif.latex?(a-\lambda)(d-\lambda)&space;-&space;bc&space;=&space;0" /><br/>
-<img src="https://latex.codecogs.com/gif.latex?a&space;d&space;-&space;a\lambda&space;-d\lambda&space;&plus;&space;\lambda&space;^2&space;-&space;bc&space;=&space;0" /><br/>
-<img src="https://latex.codecogs.com/gif.latex?\lambda&space;^2&space;-(a&plus;d)\lambda&space;&plus;&space;ad&space;-&space;bc&space;=&space;0" /><br/>
-<img src="https://latex.codecogs.com/gif.latex?\lambda&space;^2&space;-Tr(a)\lambda&space;&plus;&space;det(A)&space;=&space;0" /><br/>
+<img src="img/latex/latex02.png" align="middle"/> <br/>
+<img src="img/latex/latex03.png" /><br/>
+<img src="img/latex/latex04.png" /><br/>
+<img src="img/latex/latex05.png" /><br/>
+<img src="img/latex/latex06.png" /><br/>
+<img src="img/latex/latex07.png" /><br/>
 
 So just with the trace and determinant of _A_ we can find its eigenvalues.
+
 Then from the process of diagonalization of a matrix we know that<br/>
-<img src="https://latex.codecogs.com/gif.latex?A&space;=&space;LJR" ><br/>
-<img src="https://latex.codecogs.com/gif.latex?A&space;=&space;R^{-1}JR" /><br/>
+<img src="img/latex/latex08.png" ><br/>
+<img src="img/latex/latex09.png" /><br/>
+
+If we set <img src="img/latex/latex10.png"/>, we obtain the similarity transformation:
+<img src="img/latex/latex11.png" /><br/>
+
 where:
- - _R_ is the modal matrix, that is a matrix containing the eigenvectors of A in its columns
- - _J_ is the diagonal matrix of _A_'s eigenvalues
+ - _M_ is the modal matrix, that is a matrix containing the eigenvectors of A in its columns
+ - _D_ is the diagonal matrix of _A_'s eigenvalues, also called 'spectral matrix'
 
 We have everything (clearly we have to invert the modal matrix) so we can easily find the matrix _A_.
 ### Use the matrix _A<sub>i</sub>_
 We know<br/>
-<img src="https://latex.codecogs.com/gif.latex?f_i&space;:&space;N^2&space;\rightarrow&space;N^2"/><br/>
-that means
-<img src="https://latex.codecogs.com/gif.latex?\begin{bmatrix}&space;A_i&space;\end{bmatrix}&space;\begin{bmatrix}&space;x_i\\&space;y_i&space;\end{bmatrix}&space;=&space;\begin{bmatrix}&space;x_o\\&space;y_o&space;\end{bmatrix}" /><br/>
+<img src="img/latex/latex12.png" /><br/>
+
+that means <br>
+<img src="img/latex/latex13.png" /><br/>
 where x<sub>i</sub> and y<sub>i</sub> are the coordinates in input while x<sub>o</sub> and y<sub>o</sub> are the coordinates in output.
 
 Moreover from the text we know that<br/>
-<img src="https://latex.codecogs.com/gif.latex?\begin{bmatrix}&space;A_i&space;\end{bmatrix}&space;\begin{bmatrix}&space;x_{i-1}\\&space;y_{i-1}&space;\end{bmatrix}&space;=&space;\begin{bmatrix}&space;x_i\\&space;y_i&space;\end{bmatrix}&space;\quad\quad\quad&space;\forall&space;i&space;\in&space;[1,&space;n]" /><br/>
-and that the initial coordinate are (1,3). 
-We have just implemented all this in a python program and that was the result:<br/>
-<img src="img/img_2.jpg" /><br/>
-<img src="img/img_3.jpg" />
+<img src="img/latex/latex14.png" /><br/>
+and that the initial coordinate are (1,3).
+
+We have implemented all this in a python script, after editing a little bit the 'trans.txt' file, as there were some irregularities in the blank spaces that were messing up the `.find()` function in the script (yes, we could have used a regex, but in this case it was way faster to even out the 'trans.txt' file).
+
+The `round()` function at lines 54-55 in the script is needed because of the following reason:
+every f<sub>i</sub> transformation applies a linear mapping from <img src="img/latex/latex15.png" /> to <img src="img/latex/latex15.png" /> . This, however, does not imply that every A<sub>i</sub> matrix only has natural components. In fact, the matrices belong to <img src="img/latex/latex16.png" />. <br/>
+Since we're dealing with floats, that have a limited precision, approximation errors are always behind the corner. Furthermore, since the output of the i-th iteration is the input of the (i+1)th iteration, we also have to deal with error propagation and amplification.
+The `round()` function takes care of all these issues.
+You can try and remove it from the script, to have a nice example of what those issues can lead to if they're not properly taken care of.
+
+We computed all the points, plotted them on a scatter plot and got the flag
+
+<img src="img/screenshots/screenshot2.png" /> <br>
+<img src="img/screenshots/screenshot3.png" />
 
