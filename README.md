@@ -10,7 +10,7 @@ Problem in _problem.pdf_ file and a useful information in the challenge descript
 ### Find _A<sub>i</sub>_ matrix
 First of all we have to find _A<sub>i</sub>_'s eigenvalues.
 Given the generic 2x2 matrix 
-<img src="https://latex.codecogs.com/gif.latex?A&space;=&space;\begin{bmatrix}&space;a&space;&&space;b\\&space;c&space;&&space;d&space;\end{bmatrix}" style="display: block; margin: 0 auto;" />
+<img src="https://latex.codecogs.com/gif.latex?A&space;=&space;\begin{bmatrix}&space;a&space;&&space;b\\&space;c&space;&&space;d&space;\end{bmatrix}" style="display: block; margin: 0 auto;" /> \n
 we know that its characteristic polynomial is
 <img src="https://latex.codecogs.com/gif.latex?det(A&space;-&space;\lambda&space;I)&space;=&space;0" align="middle"/>
 <img src="https://latex.codecogs.com/gif.latex?det(\begin{bmatrix}&space;a-\lambda&space;&&space;b\\&space;c&space;&&space;d-\lambda&space;\end{bmatrix})&space;=&space;0" />
