@@ -1,6 +1,6 @@
 # Santa's Elf Morphing Machine
 
-Solution provided by: [Gianluca Lofrumento](github.io/glofru), [Alessio Di Santo](github.io/alessiobb3b) e [Marco Pinna](github.io/MPinna)
+Solution provided by: [Gianluca Lofrumento](https://github.com/github.io/glofru), [Alessio Di Santo](https://github.com/github.io/alessiobb3b) e [Marco Pinna](https://github.com/github.io/MPinna)
 
 ## Problem
 Problem in _problem.pdf_ file and a useful information in the challenge description
