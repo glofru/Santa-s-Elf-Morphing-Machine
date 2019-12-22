@@ -39,6 +39,6 @@ Moreover from the text we know that<br/>
 <img src="https://latex.codecogs.com/gif.latex?\begin{bmatrix}&space;A_i&space;\end{bmatrix}&space;\begin{bmatrix}&space;x_{i-1}\\&space;y_{i-1}&space;\end{bmatrix}&space;=&space;\begin{bmatrix}&space;x_i\\&space;y_i&space;\end{bmatrix}&space;\quad\quad\quad&space;\forall&space;i&space;\in&space;[1,&space;n]" /><br/>
 and that the initial coordinate are (1,3). 
 We have just implemented all this in a python program and that was the result:<br/>
-<img src="img_2.jpg" /><br/>
-<img src="img_3.jpg" />
+<img src="img/img_2.jpg" /><br/>
+<img src="img/img_3.jpg" />
 
